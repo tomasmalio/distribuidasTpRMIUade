@@ -1,5 +1,5 @@
 /bin/
-*.class binary
+*.class
 .project
-.DS_Store binary
-.classpath binary
+.DS_Store
+.classpath
