@@ -1,5 +1,6 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 @Entity
 @Table(name="ventas")
-public class Venta extends Servicio {
+public class Venta extends Servicio implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Column (name = "fechaEscritura", nullable = false, length = 50)
 	Date fechaEscritura;
 	@Column (name = "valorEscritura", nullable = false, length = 50)
