@@ -21,7 +21,7 @@ public class Server {
     		try {
     			LocateRegistry.createRegistry(1099);	
             TDASistemaInmobiliaria sistema = SistemaInmobiliaria.getInstance();
-            String url = "//localhost/GestionAlumnos";
+            String url = "//localhost/SistemaInmobiliaria";
             Naming.rebind(url, sistema);
             System.out.println("Server listening on: " + url);
 		} catch (Exception e) {

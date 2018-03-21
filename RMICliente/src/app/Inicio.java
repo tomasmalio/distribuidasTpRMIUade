@@ -57,9 +57,10 @@ public class Inicio extends JFrame {
 	
 	public Inicio() {
 		try {
-			inmobiliariaController = (TDASistemaInmobiliaria)Naming.lookup ("//localhost/SistemaInmobiliaria");
+			inmobiliariaController = (TDASistemaInmobiliaria) Naming.lookup ("//localhost/SistemaInmobiliaria");
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Cannot connect to server :(");
 		}
 		
 		initGUI();
