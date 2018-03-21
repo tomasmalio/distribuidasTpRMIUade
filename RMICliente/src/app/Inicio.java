@@ -10,7 +10,6 @@
  ****************************************************/
 package app;
 
-//import app.Setup;
 import interfaz.TDASistemaInmobiliaria;
 
 import java.awt.event.ActionEvent;
@@ -61,7 +60,6 @@ public class Inicio extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		initGUI();
 	}
    
