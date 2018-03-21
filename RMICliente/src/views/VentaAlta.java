@@ -2,6 +2,7 @@ package views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,7 +44,7 @@ public class VentaAlta extends javax.swing.JFrame {
 	
 	private TDASistemaInmobiliaria sistema;
 
-	public VentaAlta  (TDASistemaInmobiliaria s) {
+	public VentaAlta  (TDASistemaInmobiliaria s) throws RemoteException {
 		super();
 		sistema = s;
 		propiedades = buscarPropiedad();
@@ -148,7 +149,12 @@ public class VentaAlta extends javax.swing.JFrame {
 		
 		btnVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				onSubmit();
+				try {
+					onSubmit();
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -163,8 +169,9 @@ public class VentaAlta extends javax.swing.JFrame {
 	 * están en venta
 	 * 
 	 * @return List<Propiedad>
+	 * @throws RemoteException 
 	 */
-	private List<Propiedad> buscarPropiedad() {
+	private List<Propiedad> buscarPropiedad() throws RemoteException {
 		List<Propiedad> propiedades = sistema.getPropiedades();
 		return propiedades;
 	}
@@ -202,7 +209,7 @@ public class VentaAlta extends javax.swing.JFrame {
 		}
 	}
 	
-	private List<Persona> buscarPersonas() {
+	private List<Persona> buscarPersonas() throws RemoteException {
 		List<Persona> personas = sistema.getPersonas();
 		return personas;
 	}
@@ -241,7 +248,7 @@ public class VentaAlta extends javax.swing.JFrame {
 		this.frmVentaAlta.setVisible(isVisible);
 	}
 	
-	public void onSubmit() {
+	public void onSubmit() throws RemoteException {
 		try {
 			Date fEscritura = new SimpleDateFormat("yyyy-MM-dd").parse(fechaEscritura.getText());
 			float vEscritura = Float.parseFloat(valorEscritura.getText());

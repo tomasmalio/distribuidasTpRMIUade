@@ -18,6 +18,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.rmi.RemoteException;
 
 public class AlquilerModificar extends javax.swing.JFrame {
 
@@ -33,7 +34,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private JLabel lblComision = new JLabel("Comision gestion");
 	private JLabel lblSellado = new JLabel("Gastos sellado");
 	
-	public AlquilerModificar (TDASistemaInmobiliaria s) {
+	public AlquilerModificar (TDASistemaInmobiliaria s) throws RemoteException {
 		super();
 		sistema = s;
 		alquileres= buscarAlquileres();
@@ -90,7 +91,12 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				onSubmit();
+				try {
+					onSubmit();
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnModificar.setBounds(175, 400, 117, 29);
@@ -124,7 +130,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		txtSellado.setColumns(10);
 	}
 	
-	private List<Alquiler> buscarAlquileres() {
+	private List<Alquiler> buscarAlquileres() throws RemoteException {
 		List<Alquiler> alquileres = sistema.getAlquileres();
 		return alquileres;
 	}
@@ -169,7 +175,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		this.frmAlquilerModificar.setVisible(isVisible);
 	}
 	
-	private void onSubmit() {
+	private void onSubmit() throws RemoteException {
 		alquiler.setComisionGestion(Float.parseFloat(txtComision.getText()));
 		alquiler.setGastosSellado(Float.parseFloat(txtSellado.getText()));
 		sistema.grabarAlquiler(alquiler);

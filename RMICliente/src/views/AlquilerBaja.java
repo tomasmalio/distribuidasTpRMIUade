@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +27,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private JTable table;
 	private JButton btnBajaAlquiler;
 
-	public AlquilerBaja (TDASistemaInmobiliaria s) {
+	public AlquilerBaja (TDASistemaInmobiliaria s) throws RemoteException {
 		super();	
 		sistema = s;
 		alquileres = buscarAlquileres();	
@@ -78,8 +79,9 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	 * venta y así mostrarlas
 	 * 
 	 * @return ArrayList<Venta>
+	 * @throws RemoteException 
 	 */
-	private List<Alquiler> buscarAlquileres() {
+	private List<Alquiler> buscarAlquileres() throws RemoteException {
 		List<Alquiler> alquileres = sistema.getAlquileres();
 		return alquileres;
 	}

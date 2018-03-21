@@ -16,6 +16,7 @@ import interfaz.TDASistemaInmobiliaria;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
@@ -99,7 +100,12 @@ public class Inicio extends JFrame {
 					public void actionPerformed(ActionEvent evt)
 					{
 						if (inmobiliariaController != null) {
-							AlquilerAlta alquilerAlta = new AlquilerAlta(inmobiliariaController);
+							AlquilerAlta alquilerAlta = null;
+							try {
+								alquilerAlta = new AlquilerAlta(inmobiliariaController);
+							} catch (RemoteException e) {
+								e.printStackTrace();
+							}
 							alquilerAlta.setVisible(true);
 							toFront();
 						}
@@ -116,7 +122,13 @@ public class Inicio extends JFrame {
 					public void actionPerformed(ActionEvent evt)
 					{
 						if (inmobiliariaController != null) {
-							AlquilerModificar alquilerModificar = new AlquilerModificar(inmobiliariaController);
+							AlquilerModificar alquilerModificar = null;
+							try {
+								alquilerModificar = new AlquilerModificar(inmobiliariaController);
+							} catch (RemoteException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							alquilerModificar.setVisible(true);
 							toFront();
 						}
@@ -133,7 +145,13 @@ public class Inicio extends JFrame {
 					public void actionPerformed(ActionEvent evt)
 					{
 						if (inmobiliariaController != null) {
-							AlquilerBaja alquilerBaja = new AlquilerBaja(inmobiliariaController);
+							AlquilerBaja alquilerBaja = null;
+							try {
+								alquilerBaja = new AlquilerBaja(inmobiliariaController);
+							} catch (RemoteException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							alquilerBaja.setVisible(true);
 							toFront();
 						}
@@ -171,7 +189,12 @@ public class Inicio extends JFrame {
 					public void actionPerformed(ActionEvent evt)
 					{
 						if (inmobiliariaController != null) {
-							VentaAlta ventaAlta = new VentaAlta(inmobiliariaController);
+							VentaAlta ventaAlta = null;
+							try {
+								ventaAlta = new VentaAlta(inmobiliariaController);
+							} catch (RemoteException e) {
+								e.printStackTrace();
+							}
 							ventaAlta.setVisible(true);
 							toFront();
 						}
@@ -205,7 +228,12 @@ public class Inicio extends JFrame {
 					public void actionPerformed(ActionEvent evt)
 					{
 						if (inmobiliariaController != null) {
-							VentaBaja ventaBaja = new VentaBaja(inmobiliariaController);
+							VentaBaja ventaBaja = null;
+							try {
+								ventaBaja = new VentaBaja(inmobiliariaController);
+							} catch (RemoteException e) {
+								e.printStackTrace();
+							}
 							ventaBaja.setVisible(true);
 							toFront();
 						}

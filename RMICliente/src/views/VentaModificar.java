@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.rmi.RemoteException;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -151,7 +152,12 @@ public class VentaModificar extends javax.swing.JFrame {
 	}
 	
 	private List<Venta> buscarVentas() {
-		List<Venta> ventas = sistema.getVentas();
+		List<Venta> ventas = null;
+		try {
+			ventas = sistema.getVentas();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		return ventas;
 	}
 	
@@ -202,7 +208,11 @@ public class VentaModificar extends javax.swing.JFrame {
 	public void onSubmit() {
 		venta.setValorEscritura(Float.parseFloat(txtValorEscritura.getText()));
 		venta.setGastosEscritura(Float.parseFloat(txtGastoEscritura.getText()));
-		sistema.grabarVenta(venta);
+		try {
+			sistema.grabarVenta(venta);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		setVisible(false);
 		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
 	}

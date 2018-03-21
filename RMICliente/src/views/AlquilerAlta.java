@@ -17,6 +17,7 @@ import bean.Propiedad;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 
@@ -43,8 +44,9 @@ public class AlquilerAlta {
 
 	/**
 	 * Create the application.
+	 * @throws RemoteException 
 	 */
-	public AlquilerAlta(TDASistemaInmobiliaria s) {
+	public AlquilerAlta(TDASistemaInmobiliaria s) throws RemoteException {
 		sistema = s;
 		propiedades = buscarPropiedad();
 		personas = buscarPersonas();
@@ -158,7 +160,7 @@ public class AlquilerAlta {
 		frmAlquilerAlta.getContentPane().add(btnAlquilar);
 	}
 	
-	private List<Propiedad> buscarPropiedad() {
+	private List<Propiedad> buscarPropiedad() throws RemoteException {
 		List<Propiedad> propiedades = sistema.getPropiedades();
 		return propiedades;
 	}
@@ -196,7 +198,7 @@ public class AlquilerAlta {
 		}
 	}
 	
-	private List<Persona> buscarPersonas() {
+	private List<Persona> buscarPersonas() throws RemoteException {
 		List<Persona> personas = sistema.getPersonas();
 		return personas;
 	}
@@ -248,8 +250,16 @@ public class AlquilerAlta {
 			 * Agregamos el alquiler
 			 */
 			Date dateNow = new Date();
-			sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
-			sistema.grabarAlquileres(sistema.getAlquileres());
+			try {
+				sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			try {
+				sistema.grabarAlquileres(sistema.getAlquileres());
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 			frmAlquilerAlta.setVisible(false);
 			JOptionPane.showMessageDialog(null, "Alquiler Publicado Exitosamente!");
 			

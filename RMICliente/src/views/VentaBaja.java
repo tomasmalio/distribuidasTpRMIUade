@@ -2,6 +2,7 @@ package views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -26,7 +27,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	List<Venta> ventas;
 	private Venta venta;
 
-	public VentaBaja (TDASistemaInmobiliaria s) {
+	public VentaBaja (TDASistemaInmobiliaria s) throws RemoteException {
 		super();		
 		sistema = s;		
 		ventas = buscarPropiedadesEnVenta();
@@ -78,8 +79,9 @@ public class VentaBaja extends javax.swing.JFrame {
 	 * venta y así mostrarlas
 	 * 
 	 * @return ArrayList<Venta>
+	 * @throws RemoteException 
 	 */
-	private List<Venta> buscarPropiedadesEnVenta() {
+	private List<Venta> buscarPropiedadesEnVenta() throws RemoteException {
 		List<Venta> ventas = sistema.getVentas();
 		return ventas;
 	}
