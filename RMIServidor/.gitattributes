@@ -1,0 +1,4 @@
+*.class binary
+.project binary
+.DS_Store binary
+.classpath binary
