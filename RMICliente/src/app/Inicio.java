@@ -1,6 +1,6 @@
 /****************************************************
  * Aplicaciones Distribuidas 2018 Verano
- * Trabajo Práctico - Inmobiliaria
+ * Trabajo Práctico - Inmobiliaria RMI
  * GitHub: https://github.com/tomasmalio/distribuidasTpUade
  * 
  * @author	1037546 - Tomas Malio 
@@ -10,7 +10,7 @@
  ****************************************************/
 package app;
 
-import app.Setup;
+//import app.Setup;
 import interfaz.TDASistemaInmobiliaria;
 
 import java.awt.event.ActionEvent;
@@ -126,7 +126,6 @@ public class Inicio extends JFrame {
 							try {
 								alquilerModificar = new AlquilerModificar(inmobiliariaController);
 							} catch (RemoteException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							alquilerModificar.setVisible(true);
@@ -149,7 +148,6 @@ public class Inicio extends JFrame {
 							try {
 								alquilerBaja = new AlquilerBaja(inmobiliariaController);
 							} catch (RemoteException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							alquilerBaja.setVisible(true);
