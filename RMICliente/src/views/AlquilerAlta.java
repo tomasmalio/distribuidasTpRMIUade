@@ -10,10 +10,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import app.SistemaInmobiliaria;
+import interfaz.TDASistemaInmobiliaria;
 import bean.Persona;
 import bean.Propiedad;
-import interfaz.TDASistemaInmobiliaria;
 
 import javax.swing.JTable;
 import javax.swing.JButton;

@@ -15,14 +15,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import app.SistemaInmobiliaria;
+import interfaz.TDASistemaInmobiliaria;
 import bean.Venta;
 
 public class VentaModificar extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private SistemaInmobiliaria sistema;
+	private TDASistemaInmobiliaria sistema;
 	private JTextField txtComision;
 	private JTextField txtGastoEscritura;
 	private JTextField txtValorEscritura;
@@ -38,7 +38,7 @@ public class VentaModificar extends javax.swing.JFrame {
 	private List<Venta> ventas;
 	private Venta venta;
 	
-	public VentaModificar  (SistemaInmobiliaria s) {
+	public VentaModificar (TDASistemaInmobiliaria s) {
 		super();
 		sistema = s;	
 		ventas = buscarVentas();

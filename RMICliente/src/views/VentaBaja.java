@@ -11,14 +11,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import app.SistemaInmobiliaria;
+import interfaz.TDASistemaInmobiliaria;
 import bean.Venta;
 
 public class VentaBaja extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private SistemaInmobiliaria sistema;
+	private TDASistemaInmobiliaria sistema;
 	private JFrame frmVentaBaja;
 	private JButton btnBajaVenta;
 	private JTable table;
@@ -26,7 +26,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	List<Venta> ventas;
 	private Venta venta;
 
-	public VentaBaja (SistemaInmobiliaria s) {
+	public VentaBaja (TDASistemaInmobiliaria s) {
 		super();		
 		sistema = s;		
 		ventas = buscarPropiedadesEnVenta();

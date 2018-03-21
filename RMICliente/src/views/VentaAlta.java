@@ -18,7 +18,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import app.SistemaInmobiliaria;
+import interfaz.TDASistemaInmobiliaria;
 import bean.Persona;
 import bean.Propiedad;
 import bean.Venta;
@@ -41,9 +41,9 @@ public class VentaAlta extends javax.swing.JFrame {
 	private Persona pers;
 	private Propiedad prop;
 	
-	private SistemaInmobiliaria sistema;
+	private TDASistemaInmobiliaria sistema;
 
-	public VentaAlta  (SistemaInmobiliaria s) {
+	public VentaAlta  (TDASistemaInmobiliaria s) {
 		super();
 		sistema = s;
 		propiedades = buscarPropiedad();

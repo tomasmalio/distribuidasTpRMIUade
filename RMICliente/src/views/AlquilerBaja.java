@@ -1,6 +1,6 @@
 package views;
 
-import app.SistemaInmobiliaria;
+import interfaz.TDASistemaInmobiliaria;
 import bean.Alquiler;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private SistemaInmobiliaria sistema;
+	private TDASistemaInmobiliaria sistema;
 	
 	List<Alquiler> alquileres;
 	private Alquiler alquiler;
@@ -26,7 +26,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private JTable table;
 	private JButton btnBajaAlquiler;
 
-	public AlquilerBaja  (SistemaInmobiliaria s) {
+	public AlquilerBaja (TDASistemaInmobiliaria s) {
 		super();	
 		sistema = s;
 		alquileres = buscarAlquileres();	

@@ -1,6 +1,6 @@
 package views;
 
-import app.SistemaInmobiliaria;
+import interfaz.TDASistemaInmobiliaria;
 import bean.Alquiler;
 import bean.Servicio;
 
@@ -23,7 +23,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private SistemaInmobiliaria sistema;
+	private TDASistemaInmobiliaria sistema;
 	private JTextField txtComision;
 	private JTextField txtSellado;
 	private JFrame frmAlquilerModificar;
@@ -33,7 +33,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private JLabel lblComision = new JLabel("Comision gestion");
 	private JLabel lblSellado = new JLabel("Gastos sellado");
 	
-	public AlquilerModificar (SistemaInmobiliaria s) {
+	public AlquilerModificar (TDASistemaInmobiliaria s) {
 		super();
 		sistema = s;
 		alquileres= buscarAlquileres();
