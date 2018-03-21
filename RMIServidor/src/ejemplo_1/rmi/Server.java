@@ -1,4 +1,4 @@
-package ejemplo_1.server;
+package ejemplo_1.rmi;
 
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
