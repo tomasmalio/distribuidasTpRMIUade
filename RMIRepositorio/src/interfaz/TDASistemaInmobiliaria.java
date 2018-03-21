@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -11,7 +12,7 @@ import bean.Propiedad;
 import bean.Servicio;
 import bean.Venta;
 
-public interface TDASistemaInmobiliaria {
+public interface TDASistemaInmobiliaria extends Remote {
 	public float calcularComisiones(LocalDate fechaDesde, LocalDate fechaHasta ) throws RemoteException;
 	public List<Persona> getPersonas() throws RemoteException;
 	public Persona addPersona(String cuil_cuit, String nombre_razon, String domicilio, String telefono, String mail)  throws RemoteException;

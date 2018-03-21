@@ -9,21 +9,20 @@ public class Server {
     
 	TDASistemaInmobiliaria objetoRemoto;
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		new Server();
 	}
 	
 	public Server() {
-		iniciar();
+		init();
 	}
 	
-    public void iniciar() {
-    	try {
-    		LocateRegistry.createRegistry(1099);	
+    public void init() {
+    		try {
+    			LocateRegistry.createRegistry(1099);	
             TDASistemaInmobiliaria sistema = SistemaInmobiliaria.getInstance();
-            String url = "//192.168.212.35/GestionAlumnos";
-            Naming.rebind(url, (Remote) sistema);
+            String url = "//localhost/GestionAlumnos";
+            Naming.rebind(url, sistema);
             System.out.println("Server listening on: " + url);
 		} catch (Exception e) {
 			e.printStackTrace();
