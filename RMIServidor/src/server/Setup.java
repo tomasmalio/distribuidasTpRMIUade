@@ -44,7 +44,7 @@ public class Setup {
 			Date fechaDesde 		= new SimpleDateFormat("yyyy-MM-dd").parse("2018-01-01");
 			Date fechaHasta 		= new SimpleDateFormat("yyyy-MM-dd").parse("2019-01-01");
 			
-			sistema.addAlquiler(fechaDesde, fechaHasta, 1550, 3000, fechaRegServicio, sistema.buscarPropiedad("1"), sistema.buscarPersona("12346"));
+			sistema.addAlquiler(fechaDesde, fechaHasta, 1550, 3000, fechaRegServicio, sistema.buscarPropiedad("1").getNroPartida(), sistema.buscarPersona("12346").getCuil_cuit());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -55,7 +55,7 @@ public class Setup {
 			Date fechaRegServicio 	= new SimpleDateFormat("yyyy-MM-dd").parse("2016-12-10");
 			Date fechaEscritura 	= new SimpleDateFormat("yyyy-MM-dd").parse("2018-01-01");
 			
-			sistema.addVenta(fechaEscritura, 1550, 3000, 100, fechaRegServicio, sistema.buscarPropiedad("1"), sistema.buscarPersona("12346"));
+			sistema.addVenta(fechaEscritura, 1550, 3000, 100, fechaRegServicio, sistema.buscarPropiedad("1").getNroPartida(), sistema.buscarPersona("12346").getCuil_cuit());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

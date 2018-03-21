@@ -170,31 +170,7 @@ public class SistemaInmobiliaria extends UnicastRemoteObject implements TDASiste
 	/**************************************************************
 	 * 						SERVICIOS
 	 * 					ALQUILERES | VENTA
-	 *************************************************************/
-	/**
-	 * get Servicios
-	 * 
-	 * @return List<Servicio>
-	 */
-	public List<Servicio> getServicios(){
-		return servicios.getServicios();
-	}
-	
-	/**
-	 * add Servicio
-	 * 
-	 * @param fecha
-	 * @param propiedad
-	 * @param interesado
-	 */
-	public void addServicio(Date fecha, Propiedad propiedad, Persona interesado) {
-		Servicio servicio = new Servicio();
-		servicio.setFecha(fecha);
-		servicio.setPropiedad(propiedad);
-		servicio.setInteresado(interesado);
-		servicios.addServicio(servicio);
-	}
-	
+	 *************************************************************/	
 	/**
 	 * grabar Alquileres
 	 * 
@@ -262,16 +238,16 @@ public class SistemaInmobiliaria extends UnicastRemoteObject implements TDASiste
 	 * 
 	 * @return Alquiler
 	 */
-	public Alquiler addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
-			Persona interesado) {
+	public Alquiler addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, String nroPartida,
+			String cuil_cuit) {
 		Alquiler alquiler = new Alquiler();
 		alquiler.setFechaDesde(fechaDesde);
 		alquiler.setFechaHasta(fechaHasta);
 		alquiler.setComisionGestion(comisionGestion);
 		alquiler.setGastosSellado(gastosSellado);
 		alquiler.setFecha(fecha);
-		alquiler.setPropiedad(propiedad);
-		alquiler.setInteresado(interesado);
+		alquiler.setPropiedad(propiedades.getPropiedadPorNroPartida(nroPartida));
+		alquiler.setInteresado(personas.getPersonaPorCuit(cuil_cuit));
 		alquileres.addAlquiler(alquiler);
 		return alquiler;
 	}
@@ -284,21 +260,21 @@ public class SistemaInmobiliaria extends UnicastRemoteObject implements TDASiste
 	 * @param comisionVenta
 	 * @param gastosEscritura
 	 * @param fecha
-	 * @param propiedad
-	 * @param interesado
+	 * @param nroPartida
+	 * @param cuil_cuit
 	 * 
 	 * @return Venta
 	 */
 	public Venta addVenta(Date fechaEscritura, float valorEscritura, float comisionVenta, float gastosEscritura, Date fecha,
-			Propiedad propiedad, Persona interesado) {
+			String nroPartida, String cuil_cuit) {
 		Venta servicio = new Venta();
 		servicio.setFechaEscritura(fechaEscritura);
 		servicio.setValorEscritura(valorEscritura);
 		servicio.setComisionVenta(comisionVenta);
 		servicio.setGastosEscritura(gastosEscritura);
 		servicio.setFecha(fecha);
-		servicio.setPropiedad(propiedad);
-		servicio.setInteresado(interesado);
+		servicio.setPropiedad(propiedades.getPropiedadPorNroPartida(nroPartida));
+		servicio.setInteresado(personas.getPersonaPorCuit(cuil_cuit));
 		ventas.addVenta(servicio);
 		return servicio;
 	}

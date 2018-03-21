@@ -251,8 +251,9 @@ public class AlquilerAlta {
 			 */
 			Date dateNow = new Date();
 			try {
-				sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
+				sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop.getNroPartida(), pers.getCuil_cuit());
 			} catch (RemoteException e) {
+				System.out.println("Bella Ciao, Bella Ciao... Naerobi a imprimir unos jodidos euros que esto está pinchando");
 				e.printStackTrace();
 			}
 			try {
