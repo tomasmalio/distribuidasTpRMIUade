@@ -11,8 +11,11 @@
 package app;
 
 import app.Setup;
+import interfaz.TDASistemaInmobiliaria;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.Naming;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
@@ -44,24 +47,22 @@ public class Inicio extends JFrame {
 
 	private JMenu jMenuSalir;
 	
-	private SistemaInmobiliaria inmobiliariaController;
+	TDASistemaInmobiliaria inmobiliariaController;
+	
+	public static void main(String[] args) {
+    	Inicio inicio = new Inicio();
+    	inicio.setVisible(true);
+	}
+	
 	public Inicio() {
-		super();
-		inmobiliariaController = SistemaInmobiliaria.getInstance();
+		try {
+			inmobiliariaController = (TDASistemaInmobiliaria)Naming.lookup ("//localhost/GestionAlumnos");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		/**
-		 * Carga automática de valores
-		 * 
-		 * @params Sistema, boolean (cargaDeAlquileres), boolean (cargaDeVentas)
-		 */
-		new Setup(inmobiliariaController, true, true);
 		initGUI();
 	}
-
-	public static void main(String[] args) {
-	    	Inicio inicio = new Inicio();
-	    	inicio.setVisible(true);
-    }
    
     private void initGUI() {
 		try {

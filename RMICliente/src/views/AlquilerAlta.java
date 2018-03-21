@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import app.SistemaInmobiliaria;
 import bean.Persona;
 import bean.Propiedad;
+import interfaz.TDASistemaInmobiliaria;
 
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -34,7 +35,7 @@ public class AlquilerAlta {
 	List<Propiedad> propiedades;
 	List<Persona> personas;
 	
-	private SistemaInmobiliaria sistema;
+	private TDASistemaInmobiliaria sistema;
 	private JTextField textComision;
 	private JTextField textSellado;
 	
@@ -44,7 +45,7 @@ public class AlquilerAlta {
 	/**
 	 * Create the application.
 	 */
-	public AlquilerAlta(SistemaInmobiliaria s) {
+	public AlquilerAlta(TDASistemaInmobiliaria s) {
 		sistema = s;
 		propiedades = buscarPropiedad();
 		personas = buscarPersonas();
