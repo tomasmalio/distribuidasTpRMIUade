@@ -56,7 +56,7 @@ public class Inicio extends JFrame {
 	
 	public Inicio() {
 		try {
-			inmobiliariaController = (TDASistemaInmobiliaria)Naming.lookup ("//localhost/GestionAlumnos");
+			inmobiliariaController = (TDASistemaInmobiliaria)Naming.lookup ("//localhost/SistemaInmobiliaria");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
