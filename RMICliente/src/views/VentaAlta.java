@@ -259,7 +259,7 @@ public class VentaAlta extends javax.swing.JFrame {
 			 * Agregamos una nueva venta
 			 */
 			Date dateNow = new Date();
-			Venta venta = sistema.addVenta(fEscritura, vEscritura, cVenta, gEscritura, dateNow, prop, pers);
+			Venta venta = sistema.addVenta(fEscritura, vEscritura, cVenta, gEscritura, dateNow, prop.getNroPartida(), pers.getCuil_cuit());
 			sistema.grabarVenta(venta);
 			setVisible(false);
 			JOptionPane.showMessageDialog(null, "Venta Publicada Exitosamente!");
